@@ -9,6 +9,9 @@ package com.mycompany.sistemaacademico1.profesores;
  * @author User
  */
 public interface IProfesores {
-    public String agregarProfesores();
-       public void imprimirDatos (Profesor[] Profesores);
+   /* public String agregarProfesores();
+       public void imprimirDatos (Profesor[] Profesores);*/
+    
+     public boolean agregarProfesores(Profesor profesor);
+     public void mostrarProfesores();
 }

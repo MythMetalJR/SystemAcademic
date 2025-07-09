@@ -8,7 +8,29 @@ package com.mycompany.sistemaacademico1.profesores;
  *
  * @author User
  */
-public class Profesores {
+public class Profesores implements IProfesores {
+    
+    Profesor[] profesores = new Profesor[3];
+    @Override
+    public boolean agregarProfesores(Profesor profesor){
+        profesores [0]=profesor;
+    return true;
+    }
+    public void mostrarProfesores(){
+        System.out.println("Datos"+profesores[0].toString());
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    //private Profesor [] = profesor;
+   /* public Profesores(int dimension) {
+    }
+    
     public String agregarProfesor(){
     
     return "";
@@ -16,5 +38,5 @@ public class Profesores {
     public boolean verficarCedula(){
     
     return true;
-    }
+    }*/
 }

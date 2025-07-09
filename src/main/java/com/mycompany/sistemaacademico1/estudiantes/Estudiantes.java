@@ -3,7 +3,7 @@ package com.mycompany.sistemaacademico1.estudiantes;
 public class Estudiantes implements IEstudiantes{
     Estudiante[] estudiantes= new Estudiante[3];
      @Override
-     public boolean agregarEstudiantes(Estudiante estudiante){
+     public boolean agregarEstudiantes(Estudiante estudiante){                          
          
          
          estudiantes[0]=estudiante;

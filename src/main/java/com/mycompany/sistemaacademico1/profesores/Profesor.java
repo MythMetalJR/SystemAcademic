@@ -1,6 +1,6 @@
 package com.mycompany.sistemaacademico1.profesores;
 import com.mycompany.sistemaacademico1.personalacademicos.PersonalAcademico;
-public abstract class Profesor extends PersonalAcademico{
+public class Profesor extends PersonalAcademico{
     
     private Escalafon escalafon;
 
@@ -9,6 +9,8 @@ public abstract class Profesor extends PersonalAcademico{
         this.escalafon = escalafon;
     }
 
+    
+    
     public Escalafon getEscalafon() {
         return escalafon;
     }
