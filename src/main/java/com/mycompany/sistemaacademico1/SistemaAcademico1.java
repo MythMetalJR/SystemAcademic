@@ -14,7 +14,8 @@ import com.mycompany.sistemaacademico1.profesores.IProfesores;
 import com.mycompany.sistemaacademico1.profesores.Profesor;
 import com.mycompany.sistemaacademico1.profesores.Profesores;
 import com.mycompany.sistemaacademico1.vista.VistaEstudiante;
-
+import com.mycompany.sistemaacademico1.vista.VistaPrincipal;
+import com.mycompany.sistemaacademico1.vista.VistaProfesor;
 /**
  *
  * @author User
@@ -22,6 +23,14 @@ import com.mycompany.sistemaacademico1.vista.VistaEstudiante;
 public class SistemaAcademico1 {
 
     public static void main(String[] args) {
+       
+    java.awt.EventQueue.invokeLater(new Runnable() {
+        public void run() {
+            new VistaPrincipal().setVisible(true);
+        }
+    });
+}
+
 /*
         Profesor[] objprofesores = new Profesor[4];
         objprofesores[0]=new Profesor("Ing. Pedro", 25, "Barrio 30 de Abril");
@@ -52,8 +61,8 @@ public class SistemaAcademico1 {
         x.imprimirDatos(objestudiantes);
 */      
 
-            VistaEstudiante vistaEstudiante = new VistaEstudiante();
+         /*   VistaEstudiante vistaEstudiante = new VistaEstudiante();
             vistaEstudiante.setVisible(true);
-        
+        */
     }
-}
+
