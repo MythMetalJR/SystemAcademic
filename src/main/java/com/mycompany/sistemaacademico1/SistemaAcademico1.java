@@ -4,9 +4,16 @@
 
 package com.mycompany.sistemaacademico1;
 
+import com.mycompany.sistemaacademico1.decanos.Decano;
+import com.mycompany.sistemaacademico1.decanos.Decanos;
+import com.mycompany.sistemaacademico1.decanos.IDecanos;
 import com.mycompany.sistemaacademico1.estudiantes.Estudiante;
 import com.mycompany.sistemaacademico1.estudiantes.Estudiantes;
 import com.mycompany.sistemaacademico1.estudiantes.IEstudiantes;
+import com.mycompany.sistemaacademico1.profesores.IProfesores;
+import com.mycompany.sistemaacademico1.profesores.Profesor;
+import com.mycompany.sistemaacademico1.profesores.Profesores;
+import com.mycompany.sistemaacademico1.vista.VistaEstudiante;
 
 /**
  *
@@ -15,7 +22,7 @@ import com.mycompany.sistemaacademico1.estudiantes.IEstudiantes;
 public class SistemaAcademico1 {
 
     public static void main(String[] args) {
-
+/*
         Profesor[] objprofesores = new Profesor[4];
         objprofesores[0]=new Profesor("Ing. Pedro", 25, "Barrio 30 de Abril");
         objprofesores[1]=new Profesor("Ing. Mariana", 27, "Barrio Luis Guerra");
@@ -32,7 +39,7 @@ public class SistemaAcademico1 {
         objdecanos[3]=new Decano("Ing. Eich", 35, "Barrio Central");
         
         IDecanos x = new Decanos ();
-        x.imprimirDatos(objprofesores);
+        x.imprimirDatos(objdecanos);
 
         System.out.println("DATOS DE LOS ESTUDIANTES");
         Estudiante[] objestudiantes = new Estudiante[4];
@@ -43,6 +50,10 @@ public class SistemaAcademico1 {
 
         IEstudiantes x = new Estudiantes();
         x.imprimirDatos(objestudiantes);
+*/      
 
+            VistaEstudiante vistaEstudiante = new VistaEstudiante();
+            vistaEstudiante.setVisible(true);
+        
     }
 }

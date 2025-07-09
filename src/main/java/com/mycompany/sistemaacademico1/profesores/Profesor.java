@@ -1,13 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.sistemaacademico1.profesores;
-
-/**
- *
- * @author User
- */
+import com.mycompany.sistemaacademico1.personalacademicos.PersonalAcademico;
 public abstract class Profesor extends PersonalAcademico{
     
     private Escalafon escalafon;

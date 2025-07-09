@@ -12,6 +12,9 @@ public class Estudiante extends PersonaInstitucional {
         super(correoInstitucional, id, nombre, correoPersonal, cedula);
         this.codigo = codigo;
     }
+    
+    
+    
 
     public int getCodigo() {
         return codigo;

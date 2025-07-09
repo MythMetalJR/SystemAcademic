@@ -1,20 +1,18 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.mycompany.sistemaacademico1.decanos;
 
-/**
- *
- * @author User
- */
-public class Decanos {
-    public boolean verificarCedula(){
+
+
+public class Decanos implements IDecanos {
     
-        return false;
+    public String agregarDecano(){
+        return "";
     }
-    public String agregarDecanos(){
+    public void imprimirDatos (Decanos [] Decano){
+        for (int i =0; i < Decano.length; i++){
+        System.out.println("Datos decano: "+ Decano[i].toString());
+        }
+    }
     
-    return "";
-    }
+ 
 }

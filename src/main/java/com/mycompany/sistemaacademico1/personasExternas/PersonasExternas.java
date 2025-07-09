@@ -12,5 +12,9 @@ public class PersonasExternas {
     public String agregarPersonaExterna() {
         return "";
     }
-
+public void imprimirDatos ( PersonaExterna[] personasExternas  ){
+        for (int i=0; i<personasExternas.length; i++ ){
+            System.out.println("Datos del Estudiante: "+ personasExternas[i].toString());
+    }
+}
 }

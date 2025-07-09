@@ -9,6 +9,9 @@ package com.mycompany.sistemaacademico1.decanos;
  * @author User
  */
 public interface IDecanos {
+
     public String agregarDecano();
-       public void imprimirDatos (Decanos[] Decano);
+
+    public void imprimirDatos(Decanos[] Decano);
+
 }

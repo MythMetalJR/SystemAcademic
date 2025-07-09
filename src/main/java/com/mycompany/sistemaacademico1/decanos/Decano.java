@@ -3,12 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.sistemaacademico1.decanos;
+import com.mycompany.sistemaacademico1.personalacademicos.PersonalAcademico;
 
-/**
- *
- * @author User
- */
-public abstract class Decano extends PersonalAcademico{
+public class Decano extends PersonalAcademico{
     private String nivel;
 
     public Decano(String nivel, String dedicacion, double sueldo, String correoInstitucional, int id, String nombre, String correoPersonal, String cedula) {
