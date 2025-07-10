@@ -1,35 +1,138 @@
 
 package com.mycompany.sistemaacademico1.controlador;
 
+import com.mycompany.sistemaacademico1.profesores.Escalafon;
 import com.mycompany.sistemaacademico1.profesores.IProfesores;
-import com.mycompany.sistemaacademico1.profesores.Profesores;
-import com.mycompany.sistemaacademico1.vista.VistaProfesor;
 import com.mycompany.sistemaacademico1.profesores.Profesor;
+import com.mycompany.sistemaacademico1.profesores.Profesores;
 
 public class ControladorProfesores {
-    
-    private VistaProfesor vistaProfesores;
+
+    private VProfesores vistaProfesor;
+    private NotificadorMensaje notificarMensaje;
     private IProfesores iProfesores;
-    
-    public ControladorProfesores (VistaProfesor vistaProfesores){
-        
-        this.vistaProfesores=vistaProfesores;
-        this.iProfesores= new Profesores();
+
+    public ControladorProfesores(VProfesores vistaProfesor) {
+        this.vistaProfesor = vistaProfesor;
+        this.iProfesores = new Profesores(10);
+        this.notificarMensaje = new NotificadorMensaje();
     }
-    
-    public void procesoControladorProfesor(){
+
+    private Escalafon identificarEscalafon(String escalafon) {
+
+        Escalafon tipo = Escalafon.AGREGADO;
+        if ("PRINCIPAL".equals(escalafon)) {
+            tipo = Escalafon.PRINCIPAL;
+        } else if ("AGREGADO".equals(escalafon)) {
+            tipo = Escalafon.AUXILIAR;
+        }
+        return tipo;
+    }
+
+    public void procesoControladorProfesor() {
         try {
-        String nombreProfesor=vistaProfesores.getNombreProfesor();
-        int idProfesor=Integer.parseInt(vistaProfesores.getIdProfesor());
-        String cedulaProfesor=vistaProfesores.getCedulaProfesor();
-        String correoPersonalProfesor=vistaProfesores.getCorreoPersonalProfesor();
-        String correoInstitucionalProfesor=vistaProfesores.getCorreoInstitucionalProfesor();
-        String dedicacionProfesor=vistaProfesores.getDedicacionProfesor();
-        double sueldoProfesor=Double.parseDouble(vistaProfesores.getSueldoProfesor());
-        
+            String nombreProfesor = vistaProfesor.getNombreProfesor();
+            String correoPersonalProfesor = vistaProfesor.getCorreoPersonal();
+            String cedulaProfesor = vistaProfesor.getCedula();
+            String correoInstitucionalProfesor = vistaProfesor.getCorreoInstitucional();
+            double sueldoProfesor = Double.parseDouble(vistaProfesor.getSuledo());
+            String escalafonProfesor = vistaProfesor.getEscalafon();
+            Escalafon tipoEscalafon = identificarEscalafon(escalafonProfesor);
+            int idProfesor = Integer.parseInt(vistaProfesor.getId());
+
+            Profesor nuevoProfesor = new Profesor(
+                    tipoEscalafon,
+                    sueldoProfesor,
+                    correoInstitucionalProfesor,
+                    nombreProfesor,
+                    idProfesor,
+                    correoPersonalProfesor,
+                    cedulaProfesor);
+            boolean agregar = iProfesores.agregarProfesor(nuevoProfesor);
+            if (agregar == true) {
+                notificarMensaje.mostrarMensaje("Profesor Agregado Exito");
+                iProfesores.imprimirDatos();
+            }
         } catch (Exception e) {
-            System.out.println("Error");
+            e.printStackTrace();
+            notificarMensaje.mostrarMensaje("Error al agregar el profesor");
         }
     }
-    
+
+    public void procesoBuscarProfesor() {
+        try {
+            int iDProfesor = Integer.parseInt(vistaProfesor.getBuscar());
+            Profesor profesorBuscado = iProfesores.buscarProfesor(iDProfesor);
+            if (profesorBuscado != null) {
+                notificarMensaje.mostrarMensaje("Profesor encontrado");
+                vistaProfesor.setNombre(profesorBuscado.getNombre());
+                vistaProfesor.setCorreoPersonalDos(profesorBuscado.getCorreo());
+                vistaProfesor.setCorreoInstitucionalDos(profesorBuscado.getCorreoInstitucional());
+                vistaProfesor.setCedulaD(profesorBuscado.getCedula());
+                vistaProfesor.setSueldoDos(String.valueOf(profesorBuscado.getSueldo()));
+                vistaProfesor.setEscalafonDos("" + profesorBuscado.getEscalafon());
+
+
+
+            } else {
+                notificarMensaje.mostrarMensaje("Profesor no encontrado");
+            }
+        } catch (Exception e) {
+            notificarMensaje.mostrarMensaje("Error al buscar el Profesor ");
+        }
+    }
+
+    public void procesoControladorEliminarProfesor() {
+        try {
+            int iDProfesor = Integer.parseInt(vistaProfesor.getBuscar());
+            Profesor profesorBuscado = iProfesores.buscarProfesor(iDProfesor);
+            if (profesorBuscado != null){
+                iProfesores.eliminarProfesor(iDProfesor);
+                notificarMensaje.mostrarMensaje("Profesor eliminado");
+            }
+        } catch (Exception e) {
+            notificarMensaje.mostrarMensaje("Error al eliminar el Profesor");
+        }
+    }
+
+    public void procesoControladorActualizarProfesor() {
+        try {
+            int iDProfesor = Integer.parseInt(vistaProfesor.getBuscar());
+
+            Profesor existe = iProfesores.buscarProfesor(iDProfesor);
+            if (existe != null) {
+                String nombreProfesor = vistaProfesor.getNombreProfesor();
+                String correoPersonalProfesor = vistaProfesor.getCorreoPersonal();
+                String cedulaProfesor = vistaProfesor.getCedula();
+                String correoInstitucionalProfesor = vistaProfesor.getCorreoInstitucional();
+                double sueldoProfesor = Double.parseDouble(vistaProfesor.getSuledo());
+                String escalafonProfesor = vistaProfesor.getEscalafon();
+                Escalafon tipoEscalafon = identificarEscalafon(escalafonProfesor);
+
+                Profesor profesorActualizado = new Profesor(
+                        tipoEscalafon,
+                        sueldoProfesor,
+                        correoInstitucionalProfesor,
+                        nombreProfesor,
+                        iDProfesor,
+                        cedulaProfesor,
+                        correoPersonalProfesor
+                );
+
+                iProfesores.actualizarProfesor(iDProfesor, profesorActualizado);
+
+                notificarMensaje.mostrarMensaje("Profesor actualizado con éxito");
+
+            } else {
+                notificarMensaje.mostrarMensaje("No se encontró profesor con ID: " + iDProfesor);
+            }
+
+        } catch (NumberFormatException ex) {
+            notificarMensaje.mostrarMensaje("ID o Sueldo inválido. Verifica los datos numéricos.");
+        } catch (Exception e) {
+            e.printStackTrace();
+            notificarMensaje.mostrarMensaje("Error al actualizar el profesor");
+        }
+    }
+
 }

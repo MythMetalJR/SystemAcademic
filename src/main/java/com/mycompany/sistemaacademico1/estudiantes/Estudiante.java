@@ -1,8 +1,6 @@
-
 package com.mycompany.sistemaacademico1.estudiantes;
 
 import com.mycompany.sistemaacademico1.personasinstitucionales.PersonaInstitucional;
-
 
 public class Estudiante extends PersonaInstitucional {
 
@@ -12,9 +10,6 @@ public class Estudiante extends PersonaInstitucional {
         super(correoInstitucional, id, nombre, correoPersonal, cedula);
         this.codigo = codigo;
     }
-    
-    
-    
 
     public int getCodigo() {
         return codigo;
@@ -26,7 +21,10 @@ public class Estudiante extends PersonaInstitucional {
 
     @Override
     public String toString() {
-        return "Estudiantes{" + super.toString() + "codigo=" + codigo + '}';
+        return "Estudiante{" + super.toString() + "codigo=" + codigo + "}";
+    }
+
+    String getCorreo() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
-

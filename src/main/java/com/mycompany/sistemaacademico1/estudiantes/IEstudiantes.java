@@ -1,11 +1,14 @@
-
 package com.mycompany.sistemaacademico1.estudiantes;
 
-
 public interface IEstudiantes {
-    /*public Estudiante agregarEstudiante();
-    public void imprimirDatos (Estudiante[]estudiantes);*/
-    
+
     public boolean agregarEstudiantes(Estudiante estudiante);
-     public void mostrarEstudiantes();
+
+    public void imprimirDato();
+
+    public boolean eliminarEstudiante(int id);
+
+    public Estudiante buscarEstudiante(int id);
+
+    public boolean actualizarEstudiante(int id, Estudiante estudiante);
 }
